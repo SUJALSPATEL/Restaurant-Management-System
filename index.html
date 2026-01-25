@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Bill Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="internetdesign"><div class="internet">Internet Connection: <div class="good">Good</div></div> </div>
+            <div class="header-icons">
+                <P>RESTRO</P>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" data-category="Drinks">Drinks</button>
+            <button class="tab" data-category="Burgers">Burgers</button>
+            <button class="tab" data-category="Snacks">Snacks</button>
+            <button class="tab" data-category="Meals">Meals</button>
+        </div>
+
+        <div class="main-content">
+            <!-- Menu Section -->
+            <div class="menu-section" id="menuSection">
+                <!-- Menu items will be populated here -->
+            </div>
+
+            <!-- Order Section -->
+            <div class="order-section">
+                <div class="order-header">
+                    <h2 class="order-title">Current Order</h2>
+                
+                    </div>
+                <div style="margin: 10px 0;">
+                    <span style="font-size:14px;color:#4a5568;">Order Ref: </span>
+                    <span id="orderRef" style="font-weight:bold;color:#2d3748;"></span>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <input type="text" id="customerName" placeholder="Customer Name"
+                        style="width:100%;padding:8px;border-radius:8px;border:2px solid #e2e8f0;font-size:14px;">
+                </div>
+                <div class="order-items" id="orderItems">
+
+                    <div class="table-info">
+                        <select class="table-select" id="tableSelect">
+                            <option>Table 1</option>
+                            <option>Table 2</option>
+                            <option>Table 3</option>
+                            <option>Table 4</option>
+                            <option>Table 5</option>
+                        </select>
+                        <select class="dine-select" id="dineSelect">
+                            <option selected>Dine-In</option>
+                            <option>Take Away</option>
+                            <option>Delivery</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="order-items" id="orderItems">
+                    <!-- Order items will appear here -->
+                </div>
+
+                <div class="discount-section" onclick="toggleDiscount()">
+                    <div>
+                        <span class="discount-icon">💼</span>
+                        <span>Add Discount</span>
+                        <div class="discount-applied" id="discountApplied"></div>
+                    </div>
+                    <span>➤</span>
+                </div>
+                <div class="discount-input-area" id="discountInputArea">
+                    <input type="text" class="discount-input" id="discountInput" placeholder="Enter discount code (HAPPY100, FAMILY300, SPECIAL500, LARGE2000)">
+                    <button class="apply-btn" onclick="applyDiscount()">Apply Code</button>
+                </div>
+                <BR>
+
+                <div class="notes-section" onclick="toggleNotes()">
+                    <div>
+                        <span class="notes-icon">💬</span>
+                        <span>Note</span>
+                    </div>
+                    <span>➤</span>
+                </div>
+                <div class="notes-input-area" id="notesInputArea">
+                    <textarea class="notes-textarea" id="notesTextarea" placeholder="Add special instructions..."></textarea>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="action-btn clear-btn" onclick="clearOrder()">Clear Order</button>
+                    <button class="action-btn place-btn" onclick="placeOrder()">Place Order</button>
+                </div>
+            </div>
+
+            <!-- Calculator Section -->
+            <div class="calculator-section">
+                <div class="calc-display" id="calcDisplay">0</div>
+                <div class="calc-buttons">
+                    <button class="calc-btn" onclick="calcInput('7')">7</button>
+                    <button class="calc-btn" onclick="calcInput('8')">8</button>
+                    <button class="calc-btn" onclick="calcInput('9')">9</button>
+                    <button class="calc-btn operator" onclick="calcInput('/')">÷</button>
+                    
+                    <button class="calc-btn" onclick="calcInput('4')">4</button>
+                    <button class="calc-btn" onclick="calcInput('5')">5</button>
+                    <button class="calc-btn" onclick="calcInput('6')">6</button>
+                    <button class="calc-btn operator" onclick="calcInput('*')">×</button>
+                    
+                    <button class="calc-btn" onclick="calcInput('1')">1</button>
+                    <button class="calc-btn" onclick="calcInput('2')">2</button>
+                    <button class="calc-btn" onclick="calcInput('3')">3</button>
+                    <button class="calc-btn operator" onclick="calcInput('-')">−</button>
+                    
+                    <button class="calc-btn" onclick="calcInput('0')">0</button>
+                    <button class="calc-btn" onclick="calcInput('.')">.</button>
+                    <button class="calc-btn operator" onclick="calcInput('=')">=</button>
+                    <button class="calc-btn operator" onclick="calcInput('+')">+</button>
+                </div>
+                
+                <BR>
+                <div id="printArea">
+                    <h2 style="margin-bottom:10px;">Order Receipt</h2>
+                    <div id="printCustomer" style="font-size:14px;margin-bottom:8px;color:#2d3748;font-weight:600;"></div>
+                    <div id="printItems"></div>
+                    <div class="bill-summary" id="billSummary">
+
+                        <div class="bill-number">Order #<span id="billNumber">12345</span></div>
+                        <div class="bill-row">
+                            <span>Subtotal:</span>
+                            <span>₹ <span id="subtotal">0.00</span></span>
+                        </div>
+                        <div class="bill-row">
+                            <span>Tax (5%):</span>
+                            <span>₹ <span id="tax">0.00</span></span>
+                        </div>
+                        <div class="bill-row">
+                            <span>Service Charge:</span>
+                            <span>₹ <span id="serviceCharge">0.00</span></span>
+                        </div>
+                        <div class="bill-row" id="discountRow" style="display: none; color: #38a169;">
+                            <span>Discount:</span>
+                            <span>- ₹ <span id="discountAmount">0.00</span></span>
+                        </div>
+                        <div class="bill-row total">
+                            <span>Total:</span>
+                            <span>₹ <span id="total">0.00</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkout-buttons">
+                    <!-- <button class="checkout-btn print-btn" onclick="printBill()">Print Bill (P)</button> -->
+                    <button class="checkout-btn checkout-btn-main" onclick="checkout()">Checkout (C)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="script.js"></script>
+</body>
+</html>
