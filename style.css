@@ -433,11 +433,6 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-/* 
-        .print-btn {
-            background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
-            color: white;
-        } */
 
         .checkout-btn-main {
             background: linear-gradient(135deg, #f6ad55 0%, #ed8936 100%);
@@ -470,12 +465,4 @@
                 width: 100%;
             }
         } 
-/* 
-        @media print {
-            * {
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-                color-adjust: exact !important;
-            }
-        } */
 
