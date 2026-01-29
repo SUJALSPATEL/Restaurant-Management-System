@@ -2,7 +2,23 @@
 
 A modern, responsive web-based restaurant bill management and point-of-sale (POS) system built with vanilla HTML, CSS, and JavaScript. This application provides a comprehensive solution for managing food orders, calculating bills, and processing customer transactions.
 
-## Features
+## Project Output
+
+![Restaurant Management System UI](UI-image.png)
+
+The screenshot above shows the complete Restaurant Management System interface with menu items on the left, order management in the center, calculator and bill summary on the right.
+
+## Problem Statement
+
+Restaurants often struggle with manual order management, bill calculations, and customer service efficiency. This project addresses the need for:
+- Quick and accurate bill generation without manual calculations
+- Organized menu categorization for faster item selection
+- Automated tax and service charge calculations
+- Discount code management and application
+- Reduced errors in order taking and billing
+- A user-friendly interface for staff training and use
+
+## Features Implemented
 
 ### 📋 Menu Management
 - **Multi-category menu system** with 4 food categories:
@@ -89,10 +105,24 @@ Restaurant Management System/
 - **CSS3** - Modern styling with Flexbox and CSS Grid, gradients, animations
 - **Vanilla JavaScript** - No dependencies, pure JavaScript implementation
 
-## How to Use
+## DOM Concepts Used
+
+- **DOM Manipulation**: `getElementById()`, `querySelector()`, `createElement()`, `appendChild()` for dynamic element creation and removal
+- **Event Handling**: `addEventListener()` for click, keydown, and input events
+- **Event Delegation**: Managing clicks on menu items and calculator buttons efficiently
+- **DOM Traversal**: `parentElement`, `children`, `nextSibling` for navigating the DOM tree
+- **Dynamic Content**: Adding/removing order items, updating bill calculations in real-time
+- **Attribute Manipulation**: `setAttribute()`, `getAttribute()` for managing data attributes
+- **Class Manipulation**: `classList.add()`, `classList.remove()` for dynamic styling
+- **Form Input Handling**: Working with input fields for customer name, discount codes, and notes
+- **Window Methods**: `window.print()` for print functionality, `window.alert()` for user notifications
+- **Local Storage**: Session-based data storage for current order (if implemented)
+
+## Steps to Run the Project
 
 1. **Opening the Application**
    - Open `index.html` in any modern web browser
+   - Alternatively, use VS Code Live Server extension for development
 
 2. **Selecting Items**
    - Click on food category tabs (Drinks, Burgers, Snacks, Meals)
@@ -163,6 +193,21 @@ Restaurant Management System/
 - Application uses local storage for current session only
 - No backend required - fully client-side application
 - Perfect for small to medium-sized restaurants
+
+## Video Explanation
+
+📹 **Watch the project explanation and demonstration video:**
+
+[Restaurant Management System - Explanation Video](https://drive.google.com/file/d/12Fc7siCTim985eMC00bho1GrdZWxv_si/view?usp=drive_link)
+
+This video covers the features, functionality, and usage of the Restaurant Management System.
+
+## Known Limitations
+
+- **No Persistent Storage**: Orders are not saved after closing the browser (client-side only)
+- **No Database Backend**: Cannot store historical order data, sales reports, or analytics
+- **No User Authentication**: No staff login or role-based access control
+- **No Payment Integration**: Does not process actual payments or connect to payment gateways
 
 ## Future Enhancements
 
