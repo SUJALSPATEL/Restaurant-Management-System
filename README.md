@@ -8,6 +8,14 @@ A modern, responsive web-based restaurant bill management and point-of-sale (POS
 
 The screenshot above shows the complete Restaurant Management System interface with menu items on the left, order management in the center, calculator and bill summary on the right.
 
+## Video Explanation
+
+📹 **Watch the project explanation and demonstration video:**
+
+[Restaurant Management System - Explanation Video](https://drive.google.com/file/d/12Fc7siCTim985eMC00bho1GrdZWxv_si/view?usp=drive_link)
+
+This video covers the features, functionality, and usage of the Restaurant Management System.
+
 ## Problem Statement
 
 Restaurants often struggle with manual order management, bill calculations, and customer service efficiency. This project addresses the need for:
@@ -193,14 +201,6 @@ Restaurant Management System/
 - Application uses local storage for current session only
 - No backend required - fully client-side application
 - Perfect for small to medium-sized restaurants
-
-## Video Explanation
-
-📹 **Watch the project explanation and demonstration video:**
-
-[Restaurant Management System - Explanation Video](https://drive.google.com/file/d/12Fc7siCTim985eMC00bho1GrdZWxv_si/view?usp=drive_link)
-
-This video covers the features, functionality, and usage of the Restaurant Management System.
 
 ## Known Limitations
 
