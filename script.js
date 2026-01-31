@@ -1,4 +1,4 @@
-        // Menu Data
+        // Menu
         const menuData = {
             Drinks: [
                 { id: 1, name: 'Masala Chai', price: 20, emoji: '☕' },
@@ -37,7 +37,7 @@
             ]
         };
 
-        // State
+        // Varaibles
         let currentCategory = 'Drinks';
         let orderItems = [];
         let calcDisplay = '0';
@@ -52,7 +52,7 @@
             'LARGE2000': 2000
         };
 
-        // Initialize
+        // initialization
         function init() {
             generateBillNumber();
             renderMenu();
@@ -61,13 +61,13 @@
             updateBill();
         }
 
-        // Generate Bill Number
+        // random bill no.
         function generateBillNumber() {
             const billNum = Math.floor(10000 + Math.random() * 90000);
             document.getElementById('billNumber').textContent = billNum;
         }
 
-        // Setup Tabs
+        // tabs
         function setupTabs() {
             const tabs = document.querySelectorAll('.tab');
             tabs.forEach(tab => {
@@ -80,7 +80,7 @@
             });
         }
 
-        // Render Menu
+        // render menu
         function renderMenu() {
             const menuSection = document.getElementById('menuSection');
             menuSection.innerHTML = '';
@@ -100,7 +100,7 @@
             });
         }
 
-        // Add to Order
+        // adding to order
         function addToOrder(item) {
             const existingItem = orderItems.find(i => i.id === item.id);
             if (existingItem) {
@@ -113,7 +113,7 @@
             updateBill();
         }
 
-        //updated Print items
+        // updated print items
         function updatePrintItems() {
             const container = document.getElementById('printItems');
             const customerName = document.getElementById('customerName').value.trim();
@@ -132,7 +132,7 @@
         }
 
 
-        // Render Order
+        // render order
         function renderOrder() {
             const orderSection = document.getElementById('orderItems');
             orderSection.innerHTML = '';
@@ -152,7 +152,7 @@
             });
         }
 
-        // Remove from Order
+        // remove from order
         function removeFromOrder(itemId) {
             const item = orderItems.find(i => i.id === itemId);
             if (item) {
@@ -166,7 +166,7 @@
             updateBill();
         }
 
-        // Update Bill
+        // bill update
         function updateBill() {
             const subtotal = orderItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
             const tax = subtotal * 0.05;
@@ -186,19 +186,19 @@
             }
         }
 
-        // Toggle Discount
+        // discount textarea
         function toggleDiscount() {
             const area = document.getElementById('discountInputArea');
             area.classList.toggle('show');
         }
 
-        // Toggle Notes
+        // notes textarea
         function toggleNotes() {
             const area = document.getElementById('notesInputArea');
             area.classList.toggle('show');
         }
 
-        // Apply Discount
+        // apply discount
         function applyDiscount() {
             const code = document.getElementById('discountInput').value.toUpperCase();
             if (discountCodes[code]) {
@@ -219,7 +219,7 @@
             }
         }
 
-        // ENTER key to apply discount directly
+        // enter shortcut
         document.getElementById('discountInput').addEventListener('keydown', function (e) {
             if (e.key === 'Enter') {
                 e.preventDefault(); // form submit/block issues avoid
@@ -250,7 +250,7 @@
             }
         }
 
-        //generate bill order number
+        // bill order ref no.
         function generateOrderRef() {
             const ref = Math.floor(10000 + Math.random() * 90000);
             document.getElementById('orderRef').textContent = ref;
@@ -281,7 +281,7 @@
             document.getElementById('calcDisplay').textContent = calcDisplay;
         }
 
-        // Keyboard Listeners
+        // keyboard shortcuts
         function setupKeyboardListeners() {
             document.addEventListener('keydown', (e) => {
                 if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
